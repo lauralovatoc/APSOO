@@ -1,0 +1,17 @@
+ETAPA 3: Laura Lovato Camponogara
+
+-> Quais classes você criou e por quê?
+
+1. DocumentoImagem (que implementa a interface Documento): representa o novo ConcreteProduct, específico para abrir, editar e salvar arquivos do tipo imagem.
+
+2. FabricaDocumentoImagem (que implementa a interface FabricaDocumento): atua como o novo ConcreteCreator, instanciando e retornando um objeto da classe DocumentoImagem.
+
+-> Por que o Factory Method permitiu essa extensão sem alterar o código existente?
+
+O padrão Factory Method encapsula o processo de criação de objetos e faz com que o sistema dependa apenas de abstrações (interfaces Documento e FabricaDocumento), em vez de implementações concretas.
+
+Dessa forma, a adição do tipo DocumentoImagem respeita perfeitamente o Princípio do OCP: o sistema está aberto para extensão (podemos adicionar novas fábricas e produtos) e fechado para modificação (nenhuma interface ou classe anterior tem seu código alterado).
+
+-> O que aconteceria se o sistema tivesse sido implementado com uma fábrica única baseada em condicionais (if/else)? Justifique comparando as duas abordagens.
+
+Nesse caso, cada extensão necessitaria de uma modificação no código de Interfaces e classes que já existem. Com o Factory Method, podemos  implementar o ConcreteProduct e o ConcreteCreator sem alterar classes e interfaces já definidas.
