@@ -1,0 +1,15 @@
+ETAPA 3: Laura Lovato Camponogara
+
+-> Quais classes você criou e por quê?
+
+Para adicionar guaraná e o tamanho de 1l basta adicionar as classes: Guarana que herda a superclasse Refrigerante e a classe Tamanho1L que implementa a interface TamanhoRefrigerante.
+
+-> Por que o Bridge permitiu essas duas extensões sem alterar o código existente?
+
+Porque a Abstraction e a Implementor estão separadas, permitindo criá-las de forma separada. Adicionar um novo tamanho significa apenas criar uma nova classe que implementa a interface de tamanho. Adicionar uma nova marca significa apenas criar uma nova subclasse de refrigerante.
+
+-> O que aconteceria se o sistema tivesse sido implementado com classes para cada combinação (ex.:
+CocaCola200ml, Fanta300ml)? E se fosse uma classe única com condicionais if/else por marca?
+Justifique comparando as duas abordagens com o Bridge.
+
+Se tivesse sido implementado dessa forma, para adicionar Guarana e 1litro teríamos que adicionar várias classes: Coca1l, Fanta1L, Guarana200Ml, Guarana300Ml, Guarana600Ml e Guarana1L. Usando Bridge, podemos adicionar apenas 2 classes, vale ressaltar que a cada adição no modelo, muitas classes teriam que ser adicionadas para fazer a relação refrigerante-tamanho (combinatorial) .
