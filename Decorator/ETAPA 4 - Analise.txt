@@ -1,0 +1,21 @@
+ETAPA 4: Laura Lovato Camponogara
+
+1. Qual é o principal problema dessa abordagem à medida que novas funcionalidades são adicionadas?
+
+Quantidade excessiva de condicionais if/else, código muito difícil de trabalhar e propenso a erros.
+
+2. O que tende a acontecer com a classe EditorDeTexto quando novas formatações são solicitadas?
+
+Cada modificação será realizada na classe EditorDeTexto, então ela estaria em constante edição, o que não é uma boa prática.
+
+3. Essa abordagem viola algum princípio de projeto discutido em aula? Justifique.
+
+Sim, viola o OCP, a classe não está fechada para modificações. Sempre que um novo estilo de texto é exigido, somos obrigados a alterar o código-fonte da classe EditorDeTexto. Além disso, a classe acumula muitas responsabilidades.
+
+4. Como o padrão Decorator modifica essa estrutura?
+
+Isola cada formatação a sua própria classe. (ConcreteDecorator). Não há modificação nas classes existentes.
+
+5. Em que situação uma solução mais simples, sem Decorator, poderia ser suficiente?
+
+Quando as opções de ConcreteDecorators são mínimas, fixos e quase nunca sofrem alterações. Nesses casos, talvez não exista a necessidade de adicionar a complexidade de um padrão estrutural.

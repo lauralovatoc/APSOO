@@ -1,0 +1,30 @@
+ETAPA 3: Laura Lovato Camponogara
+
+1. Quais classes você criou e por quê?
+
+Apenas as classes TachadoDecorator e CaixaAltaDecorator.
+
+2. Por que o padrão Decorator permitiu adicionar essas funcionalidades sem modificar as classes existentes?
+
+Porque as classes que implementam os ConcreteDecorators apenas herdam a classe abstrata Decorator. Assim, podemos criar quantas forem necessário sem alterar as demais classes do sistema.
+
+3. Como o encadeamento dos decoradores funciona?
+
+O encadeamento funciona através de agregação em cadeia. Cada decorador tem uma referência interna para o objeto que está abaixo dele (editorDecorado). Quando o método exibir() é chamado, ele executa do mais externo ao mais interno.
+
+4. Qual é a diferença entre:
+- criar um único decorador responsável por todas as formatações;
+- criar um decorador separado para cada funcionalidade?
+
+Criar um único decorador significa ter uma cadeia grande de if/else e ter que alterar a classe para cada ConcreteDecorator adicionado ou removido. Utilizando um decorator separado para cada funcionalidade, podemos editá-los, criá-los e excluí-los sem afetar os demais.
+
+
+5. O que aconteceria se o sistema tivesse sido implementado criando uma classe para cada combinação possível?
+
+e 
+
+6. Compare essa abordagem com a solução baseada em Decorator.
+
+O crescimento do número de classes seria enorme (combinatório) e não seria uma boa prática criar uma classe para cada combinação possível. Isso criaria um sistema difícil de manter, sem reuso de código e muito redundante. 
+
+Utilizando o Padrão Decorator, as combinações desejadas podem ser construídas dinamicamente, apenas encadeando objetos. O que torna o sistema muito mais fácil de ser alterado e mantido.
