@@ -1,0 +1,22 @@
+ETAPA 4: Laura Lovato Camponogara
+
+1. Qual é o principal problema dessa abordagem quando novos valores de moeda precisam ser adicionados?
+Alto acoplamento, dificuldade de alteração e extensão do sistema, modificações constantes na classe, violação do Princípio Aberto/Fechado.
+
+2. Qual classe fica responsável por conhecer todos os tipos de moeda?
+A própria classe do cliente MaquinaDeVendas.
+
+3. Como o crescimento da quantidade de valores aceitos pode afetar essa classe?
+A cada valor aceito, aumenta-se um condicional, crescendo de acordo com a quantidade e acumulando responsabilidades. 
+
+4. Como o Chain of Responsibility distribui essa responsabilidade?
+Cada classe é responsável por uma operação individual, assim, nenhuma classe acumula responsabilidades.
+
+5. Qual é o papel do encaminhamento da solicitação no padrão?
+O encaminhamento permite que o cliente envie a requisição para o primeiro elo da cadeia sem precisar saber qual classe específica irá tratá-la. 
+
+6. No contexto desse sistema, o que significa dizer que cada responsável possui uma responsabilidade específica?
+Cada classe de processamento concreto tem uma única atribuição clara, sendo validar e processar exclusivamente o valor de moeda ao qual foi designada, ignorando os demais valores.
+
+7. A cadeia precisa necessariamente conter todos os tipos de moeda conhecidos pelo sistema? 
+Não necessariamente; a cadeia pode ser configurada apenas com as moedas desejadass. Por isso, se a moeda não estiver contida na cadeia, deve-se tratar o caso informando o não processamento dessa moeda.

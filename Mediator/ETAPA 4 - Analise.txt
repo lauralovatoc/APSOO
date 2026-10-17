@@ -1,0 +1,32 @@
+ETAPA 4: Laura Lovato Camponogara
+
+1. Qual é o principal problema dessa abordagem à medida que novos participantes são adicionados ao sistema?
+Cada vez que um novo comprador ou componente é adicionado, este precisa conhecer diretamente todos as outras classes participantes, resultando numa arquitetura altamente acoplada e difícil de gerir.   
+
+2. Quais classes passam a conhecer diretamente umas às outras?
+Os compradores passam a conhecer diretamente o ConversorDolar e o VendedorEUA. Por sua vez, o VendedorEUA também passa a precisar de conhecer diretamente todas as classes de compradores para conseguir devolver os resultados das propostas.   
+
+3. Como o aumento da quantidade de participantes pode afetar o acoplamento do sistema?
+Provoca um alto acoplamento. Com uma estrutura em rede, qualquer alteração numa classe exige alterações em todas as classes ligadas a ela.   
+
+4. Como o padrão Mediator distribui essa responsabilidade?
+O padrão retira a responsabilidade de comunicação direta das mãos dos objetos individuais (colleagues/colaboradores) e delega-a de forma centralizada para a classe mediadora (NegociacaoConcreto), fazendo com que os objetos apenas precisem conhecer o mediador.   
+
+5. Qual é o papel do Mediator na comunicação entre os participantes?
+Funcionar como um ponto central de coordenação e encaminhamento. Ele gere o fluxo de dados, recebendo propostas, solicitando conversões ao conversor, validando com o vendedor e retornando o resultado.   
+
+6. No contexto desse sistema, o que significa dizer que o Mediator centraliza a comunicação?
+Significa que nenhuma mensagem de negociação é enviada diretamente entre compradores, vendedores ou conversores. Toda a interação passa obrigatoriamente pelo mediador.  
+
+7. Quais seriam as consequências de colocar toda a lógica de negociação diretamente dentro da classe Aplicativo?
+A classe Aplicativo (Cliente) acumularia responsabilidades excessivas e violaria o princípio de responsabilidade única. O código perderia a coesão e a capacidade de ser testado de forma isolada.   
+
+8. Qual é a diferença entre centralizar a comunicação no Mediator e simplesmente criar uma classe que chama os métodos dos demais objetos?
+Uma simples classe utilitária apenas repassa chamadas sem gerir o comportamento cooperativo. O Mediator atua como coordenando todo o processo e aplica as regras de negócio.
+
+9. O uso do Mediator elimina completamente as dependências entre os objetos? Explique.
+Não. O Mediator não elimina as dependências, mas redireciona-as. Os colegas deixam de depender uns dos outros (reduzindo o acoplamento horizontal), mas passam todos a depender verticalmente do Mediator.   
+
+10. Em que situações o uso do padrão Mediator pode tornar o sistema mais organizado e em quais situações pode tornar o Mediator excessivamente complexo?
+Mais organizado: Quando existe um conjunto de objetos que interagem de formas complexas e bem definidas, permitindo isolar a lógica de coordenação.   
+Excessivamente complexo: Quando o mediador assume demasiada lógica de negócio e regras de controle a ponto de se tornar numa classe sobrecarregada e difícil de manter.

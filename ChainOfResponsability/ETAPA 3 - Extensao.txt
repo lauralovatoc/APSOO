@@ -1,0 +1,19 @@
+ETAPA 3: Laura Lovato Camponogara
+
+1. Qual classe foi criada para tratar a nova moeda?
+A única classe criada foi um novo processador concreto Processador2Reais, que herda a classe abstrata ProcessadorMoeda.
+
+2. Como essa classe foi incorporada à cadeia?
+A nova classe teve que ser instanciada no Cliente, e o sucessor ajustado.
+
+3. Por que foi possível adicionar o novo responsável sem modificar os responsáveis existentes?
+As classes são independentes e todas herdam a classe abstrata ProcessadorMoeda, as únicas modificações necessárias são feitas na classe cliente sem modificar as demais classes.
+
+4. O que aconteceria se fosse necessário adicionar mais cinco valores diferentes de moeda?
+O mesmo aconteceria, criação de mais 5 classes independentes que herdam a classe abstrata do ProcessorMoeda
+
+5. Como a solução baseada em Chain of Responsibility se comportaria em comparação com uma única classe contendo vários if/else para verificar o valor da moeda?
+No Chain of Responsibility, a responsabilidade de tratar cada tipo de valor é distribuída em classes separadas e a adição exige apenas a inclusão de novas classes. Já em uma única classe com if/else, qualquer alteração ou inclusão exigiria a reescrita do código interno, violando o Princípio Aberto/Fechado.
+
+6. O que aconteceria se o processamento de cada valor estivesse diretamente dentro da classe da máquina de vendas?
+A classe MaquinaDeVendas (cliente) acumularia responsabilidades demais, o que geraria um forte acoplamento e tornaria a manutenção e a expansão do sistema complicadas.

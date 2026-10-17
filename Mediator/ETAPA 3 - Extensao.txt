@@ -1,0 +1,25 @@
+ETAPA 3: Laura Lovato Camponogara
+
+1. Qual classe foi criada para representar o novo comprador?
+A classe concreta CompradorJapao foi criada, que herda diretamente da classe abstrata Comprador.
+
+2. Como o novo comprador foi registrado no Mediator?
+O novo comprador foi registado instanciando o objeto e passando a referência do mediador no seu construtor, seguida da chamada ao método de registo do mediador: mediator.registrarComprador(compradorJapao).
+
+3. Quais alterações foram necessárias no Mediator para permitir a participação do novo comprador?
+Na classe concreta (NegociacaoConcreto), foi necessário adicionar um atributo privado para armazenar a referência do CompradorJapao e atualizar a lógica condicional baseada em instanceof dentro do método registrarComprador. Além disso, um condicional também teve que ser adicionado em ConversaoDolar.
+
+4. Foi necessário modificar as classes dos compradores existentes? Por quê?
+Não. As classes existentes (CompradorBrasil e CompradorFranca) não sofreram nenhuma alteração. Isso acontece porque o novo comprador foi introduzido através de herança da classe comum Comprador, respeitando o Princípio Aberto/Fechado.
+
+5. O que aconteceria se fosse necessário adicionar mais cinco compradores?
+Seria necessário criar cinco novas classes concretas (uma para cada país) e atualizar a classe NegociacaoConcreto para declarar os respetivos atributos e ajustar as condições de registo. 
+
+6. Como o padrão Mediator ajuda a reduzir o acoplamento entre os participantes?
+O padrão centraliza toda a lógica de comunicação na classe mediadora. Os compradores deixam de conhecer diretamente o vendedor ou o conversor de moedas, comunicando-se exclusivamente com o mediador. Se os detalhes de câmbio ou do vendedor mudarem, os compradores não são afetados.
+
+7. Quais seriam as consequências de permitir que cada comprador se comunicasse diretamente com o vendedor e com o conversor?
+Resultaria num alto acoplamento. Cada classe de comprador precisaria de manter dependências diretas para todas as moedas e vendedores, tornando o código difícil de manter.
+
+8. O Mediator está apenas encaminhando mensagens ou também possui responsabilidades relacionadas à negociação? Justifique.
+O Mediator não atua apenas como um retransmissor simples, ele recebe a proposta em moeda estrangeira, solicita a conversão correta ao ConversorDolar, envia o valor resultante ao VendedorEUA para validação de preço mínimo, processa o resultado e devolve a resposta ao comprador.
